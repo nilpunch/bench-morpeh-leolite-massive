@@ -8,6 +8,7 @@ public class Runner : MonoBehaviour
 
     public BenchmarkMorpeh morpeh;
     public BenchmarkLeo leoLite;
+    public BenchmarkMassive massive;
     
     public void LeoLiteIteration()
     {
@@ -43,5 +44,23 @@ public class Runner : MonoBehaviour
     {
         rootOverlay.SetActive(false);
         morpeh.TripleMigrationTest(int.Parse(inputField.text));
+    }
+    
+    public void MassiveIteration()
+    {
+        rootOverlay.SetActive(false);
+        massive.IterationTest(int.Parse(inputField.text));
+    }
+    
+    public void MassiveSingleMigration()
+    {
+        rootOverlay.SetActive(false);
+        massive.SingleMigrationTest(int.Parse(inputField.text));
+    }
+    
+    public void MassiveTripleMigration()
+    {
+        rootOverlay.SetActive(false);
+        massive.TripleMigrationTest(int.Parse(inputField.text));
     }
 }
