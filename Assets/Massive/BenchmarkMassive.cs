@@ -159,7 +159,7 @@ public class MassiveSingleMigrationSystem : ISystem
             _pool1.Unassign(ent);
         }
         
-        foreach (var ent in _registry.View().Filter(_filter3))
+        foreach (var ent in _registry.View().Filter(_filter0))
         {
             _pool1.Assign(ent);
         }
@@ -216,16 +216,16 @@ public class MassiveTripleMigrationSystem : ISystem
     {
         foreach (var ent in _registry.View().Filter(_filter3))
         {
-            _pool1.Assign(ent);
-            _pool2.Assign(ent);
-            _pool3.Assign(ent);
-        }
-        
-        foreach (var ent in _registry.View().Filter(_filter3))
-        {
             _pool1.Unassign(ent);
             _pool2.Unassign(ent);
             _pool3.Unassign(ent);
+        }
+        
+        foreach (var ent in _registry.View().Filter(_filter0))
+        {
+            _pool1.Assign(ent);
+            _pool2.Assign(ent);
+            _pool3.Assign(ent);
         }
     }
 }
