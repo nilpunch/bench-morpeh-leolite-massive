@@ -166,7 +166,7 @@
       "dependencies": {
         "com.unity.test-framework.performance": "3.0.3"
       },
-      "hash": "696c3b0c79060b3606508418a00662f2a1ea9072"
+      "hash": "8b02511122effa8b4925afafdee7321e25291005"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
