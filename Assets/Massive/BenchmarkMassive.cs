@@ -53,10 +53,10 @@ public interface ISystem
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 public class MassiveIterationSystem : ISystem
 {
-    private Group _filter0;
-    private Group _filter1;
-    private Group _filter2;
-    private Group _filter3;
+    private Filter _filter0;
+    private Filter _filter1;
+    private Filter _filter2;
+    private Filter _filter3;
     
     private DataSet<TestComponent0> _pool0;
     private DataSet<TestComponent1> _pool1;
@@ -74,10 +74,10 @@ public class MassiveIterationSystem : ISystem
     public void Init(Registry registry) 
     {
         _registry = registry;
-        _filter0 = registry.Group<Include<TestComponent0>>();
-        _filter1 = registry.Group<Include<TestComponent0, TestComponent1>>();
-        _filter2 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2>>();
-        _filter3 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
+        _filter0 = registry.Filter<Include<TestComponent0>>();
+        _filter1 = registry.Filter<Include<TestComponent0, TestComponent1>>();
+        _filter2 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2>>();
+        _filter3 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
         
         _pool0 = registry.DataSet<TestComponent0>();
         _pool1 = registry.DataSet<TestComponent1>();
@@ -96,7 +96,7 @@ public class MassiveIterationSystem : ISystem
 
     public void Run()
     {
-        foreach (var ent in _registry.View().Group(_filter3))
+        foreach (var ent in _registry.View().Filter(_filter3))
         {
             _pool0.Get(ent).Test++;
             _pool1.Get(ent).Test++;
@@ -111,10 +111,10 @@ public class MassiveIterationSystem : ISystem
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 public class MassiveSingleMigrationSystem : ISystem
 {
-    private Group _filter0;
-    private Group _filter1;
-    private Group _filter2;
-    private Group _filter3;
+    private Filter _filter0;
+    private Filter _filter1;
+    private Filter _filter2;
+    private Filter _filter3;
     
     private DataSet<TestComponent0> _pool0;
     private DataSet<TestComponent1> _pool1;
@@ -132,10 +132,10 @@ public class MassiveSingleMigrationSystem : ISystem
     public void Init(Registry registry) 
     {
         _registry = registry;
-        _filter0 = registry.Group<Include<TestComponent0>>();
-        _filter1 = registry.Group<Include<TestComponent0, TestComponent1>>();
-        _filter2 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2>>();
-        _filter3 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
+        _filter0 = registry.Filter<Include<TestComponent0>>();
+        _filter1 = registry.Filter<Include<TestComponent0, TestComponent1>>();
+        _filter2 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2>>();
+        _filter3 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
         
         _pool0 = registry.DataSet<TestComponent0>();
         _pool1 = registry.DataSet<TestComponent1>();
@@ -154,12 +154,12 @@ public class MassiveSingleMigrationSystem : ISystem
 
     public void Run()
     {
-        foreach (var ent in _registry.View().Group(_filter3))
+        foreach (var ent in _registry.View().Filter(_filter3))
         {
             _pool1.Unassign(ent);
         }
         
-        foreach (var ent in _registry.View().Group(_filter0))
+        foreach (var ent in _registry.View().Filter(_filter0))
         {
             _pool1.Assign(ent);
         }
@@ -171,10 +171,10 @@ public class MassiveSingleMigrationSystem : ISystem
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 public class MassiveTripleMigrationSystem : ISystem
 {
-    private Group _filter0;
-    private Group _filter1;
-    private Group _filter2;
-    private Group _filter3;
+    private Filter _filter0;
+    private Filter _filter1;
+    private Filter _filter2;
+    private Filter _filter3;
     
     private DataSet<TestComponent0> _pool0;
     private DataSet<TestComponent1> _pool1;
@@ -192,10 +192,10 @@ public class MassiveTripleMigrationSystem : ISystem
     public void Init(Registry registry) 
     {
         _registry = registry;
-        _filter0 = registry.Group<Include<TestComponent0>>();
-        _filter1 = registry.Group<Include<TestComponent0, TestComponent1>>();
-        _filter2 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2>>();
-        _filter3 = registry.Group<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
+        _filter0 = registry.Filter<Include<TestComponent0>>();
+        _filter1 = registry.Filter<Include<TestComponent0, TestComponent1>>();
+        _filter2 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2>>();
+        _filter3 = registry.Filter<Include<TestComponent0, TestComponent1, TestComponent2, Include<TestComponent3>>>();
         
         _pool0 = registry.DataSet<TestComponent0>();
         _pool1 = registry.DataSet<TestComponent1>();
@@ -214,14 +214,14 @@ public class MassiveTripleMigrationSystem : ISystem
 
     public void Run()
     {
-        foreach (var ent in _registry.View().Group(_filter3))
+        foreach (var ent in _registry.View().Filter(_filter3))
         {
             _pool1.Unassign(ent);
             _pool2.Unassign(ent);
             _pool3.Unassign(ent);
         }
 
-        foreach (var ent in _registry.View().Group(_filter0))
+        foreach (var ent in _registry.View().Filter(_filter0))
         {
             _pool1.Assign(ent);
             _pool2.Assign(ent);
