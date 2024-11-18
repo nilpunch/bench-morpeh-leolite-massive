@@ -6,12 +6,20 @@ https://telegra.ph/Benchi-navskidku-Morpeh-vs-LeoLite-04-17
 
 ## Build
 
-Standard use cases without case-specific optimizations; IL2CPP Master build.
+Standard use cases without case-specific optimizations; IL2CPP Release build.
 
 ## Results
 
-| Test                                         | morpeh  | leolite | massive (filter) | massive (stable) | massive (group) |
-| -------------------------------------------- | ------- | ------- | ---------------- | ---------------- | --------------- |
-| Modify 4 components in 500K entities         | 3.7ms   | 3.4ms   | 4.2ms            | 4.2 ms           | 4.3 ms          |
-| Remove and add 1 component in 100K entities  | 7.3ms   | 13ms    | 1.9ms            | 1.5 ms           | 8.1 ms          |
-| Remove and add 3 components in 100K entities | 10.2ms  | 28.5ms  | 4.1ms            | 2.2 ms           | 14.2 ms         |
+| Test                                         | morpeh (2024.1.0)  | leolite (2023.11.22) | massive (17.0.0) |
+| -------------------------------------------- | ------------------ | -------------------- | ---------------- |
+| Modify 4 components in 500K entities         | 3.7ms              | 3.9ms                | 5.2ms            |
+| Remove and add 1 component in 500K entities  | 43.5ms             | 75.5ms               | 8.2ms            |
+| Remove and add 3 components in 500K entities | 51.5ms             | 150.9ms              | 16.3ms           |
+
+## Memory consumption with 4 components, 4 filters, and 500K entities
+
+| Project              | ram (mono) |
+| -------------------- | ---------- |
+| morpeh (2024.1.0)    | 163mb      |
+| leolite (2023.11.22) | 57mb       |
+| massive (17.0.0)     | 32mb       |
