@@ -13,7 +13,7 @@ Standard use cases without case-specific optimizations; IL2CPP Release build.
 | Test                                         | morpeh (2024.1.0)  | leolite (2023.11.22) | massive (17.0.0) |
 | -------------------------------------------- | ------------------ | -------------------- | ---------------- |
 | Modify 4 components in 500K entities         | 3.7ms              | 3.9ms                | 4.8ms            |
-| Remove and add 1 component in 500K entities  | 42.2ms             | 67.8ms               | 6.5ms            |
+| Remove and add 1 component in 500K entities  | 42.2ms             | 67.8ms               | 6.3ms            |
 | Remove and add 3 components in 500K entities | 51.2ms             | 147.4ms              | 15.4ms           |
 
 ## Memory consumption with 4 components, 4 filters, and 500K entities
